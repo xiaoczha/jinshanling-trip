@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f1e8" />
+  <meta name="description" content="金山岭家庭短途旅行调整方案——呈老婆大人审阅" />
+  <title>金山岭家庭出行调整方案｜请领导审阅</title>
+  <style>
+    :root{
+      --paper:#f6f1e8;
+      --ink:#20231f;
+      --muted:#6d716a;
+      --line:#ded7ca;
+      --card:#fffdf8;
+      --green:#355f4b;
+      --green-2:#e6eee8;
+      --amber:#a66b2b;
+      --amber-2:#f4eadb;
+      --red:#9b504b;
+      --shadow:0 12px 35px rgba(54,45,34,.08);
+      --r:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 15% -10%, rgba(255,255,255,.9), transparent 32rem),
+        var(--paper);
+      color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      line-height:1.58;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit}
+    .wrap{width:min(760px,100%);margin:auto;padding:18px 16px 70px}
+    .topline{
+      display:flex;justify-content:space-between;gap:10px;align-items:center;
+      color:var(--muted);font-size:12px;padding:6px 2px 14px;
+    }
+    .stamp{
+      border:1px solid rgba(155,80,75,.45); color:var(--red);
+      padding:5px 9px;border-radius:999px;transform:rotate(-2deg);font-weight:700;
+    }
+    .hero{
+      padding:28px 23px 22px;border:1px solid var(--line);border-radius:28px;
+      background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(255,252,244,.72));
+      box-shadow:var(--shadow);position:relative;overflow:hidden;
+    }
+    .hero:after{
+      content:"";position:absolute;width:190px;height:190px;border-radius:50%;
+      right:-92px;top:-100px;border:34px solid rgba(53,95,75,.07);
+    }
+    .eyebrow{font-size:12px;letter-spacing:.12em;color:var(--green);font-weight:800;text-transform:uppercase}
+    h1{font-size:30px;line-height:1.18;margin:10px 0 10px;letter-spacing:-.03em}
+    .lead{font-size:16px;color:#454941;margin:0 0 18px}
+    .decision{
+      background:var(--green);color:white;border-radius:18px;padding:16px 17px;margin-top:14px;
+    }
+    .decision small{display:block;opacity:.76;margin-bottom:4px;font-weight:650}
+    .decision strong{font-size:19px;line-height:1.4}
+    .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+    .chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:6px 9px;background:#fffaf2;color:#50554e}
+    section{margin-top:28px}
+    h2{font-size:20px;margin:0 0 12px;letter-spacing:-.02em}
+    .section-kicker{font-size:12px;color:var(--green);font-weight:800;letter-spacing:.1em;margin-bottom:4px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:0 5px 18px rgba(54,45,34,.04)}
+    .card h3{font-size:15px;margin:0 0 5px}
+    .card p{font-size:13px;color:var(--muted);margin:0}
+    .num{font-size:12px;color:var(--green);font-weight:800;margin-bottom:10px}
+    .priority{
+      display:grid;grid-template-columns:34px 1fr;gap:11px;align-items:flex-start;
+      padding:12px 0;border-bottom:1px dashed var(--line);
+    }
+    .priority:last-child{border:0}
+    .priority .rank{
+      width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+      background:var(--green-2);color:var(--green);font-weight:850;font-size:13px;
+    }
+    .priority b{font-size:14px}
+    .priority span{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+    .timeline{position:relative;margin-left:4px}
+    .step{display:grid;grid-template-columns:72px 1fr;gap:11px;padding:11px 0}
+    .time{font-size:12px;color:var(--muted);padding-top:2px}
+    .step b{font-size:14px}
+    .step p{font-size:12.5px;color:var(--muted);margin:3px 0 0}
+    .table-wrap{overflow-x:auto;border-radius:18px;border:1px solid var(--line);background:var(--card)}
+    table{border-collapse:collapse;width:100%;min-width:650px;font-size:12.5px}
+    th,td{text-align:left;padding:12px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+    th{background:#f0eadf;color:#5a5d57;font-size:11px;letter-spacing:.04em}
+    tr:last-child td{border-bottom:0}
+    .best{background:#f3f8f4}
+    .score{font-weight:850;color:var(--green)}
+    .weather{
+      background:linear-gradient(150deg,#294b3c,#416f58);color:white;border:0;
+    }
+    .weather h3,.weather p{color:white}
+    .weather p{opacity:.78}
+    .weather-row{display:flex;gap:9px;overflow:auto;padding:4px 0 2px}
+    .day{
+      flex:0 0 112px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.17);
+      border-radius:16px;padding:11px;
+    }
+    .day b{display:block;font-size:13px;margin-bottom:4px}
+    .day .temp{font-size:19px;font-weight:800}
+    button{
+      appearance:none;border:0;border-radius:999px;padding:9px 12px;font-weight:750;
+      font-family:inherit;cursor:pointer;
+    }
+    .weather button{background:#fff;color:#294b3c;margin-top:12px}
+    .tiny{font-size:11px;opacity:.72;margin-top:8px}
+    .callout{
+      border-left:4px solid var(--amber);background:var(--amber-2);
+      border-radius:4px 16px 16px 4px;padding:13px 14px;font-size:13px;color:#5f4a33;
+    }
+    .approve{
+      text-align:center;background:#232923;color:white;border-radius:26px;padding:23px 16px;
+    }
+    .approve h2{margin-bottom:6px}
+    .approve p{color:#cfd6cf;font-size:13px;margin:0 auto 15px;max-width:510px}
+    .approval-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+    .approval-buttons button{background:white;color:#252b25}
+    .approval-buttons button.secondary{background:#3b443c;color:white;border:1px solid #59625a}
+    #approvalResult{font-size:13px;margin-top:13px;min-height:20px;color:#e8eee8}
+    details{
+      background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 14px;margin:8px 0;
+    }
+    summary{cursor:pointer;font-weight:750;font-size:13px}
+    details p{font-size:12.5px;color:var(--muted)}
+    footer{margin-top:28px;color:#858980;font-size:11px;text-align:center}
+    .source-links a{display:inline-block;margin:3px 5px;color:#6d716a}
+    @media(max-width:560px){
+      .wrap{padding:12px 12px 52px}
+      .hero{padding:23px 18px 18px;border-radius:23px}
+      h1{font-size:27px}
+      .lead{font-size:15px}
+      .grid{grid-template-columns:1fr}
+      .topline{padding-top:3px}
+    }
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <div class="topline">
+    <span>家庭旅行方案 · v1.0 · 2026.08.15</span>
+    <span class="stamp">呈老婆大人审阅</span>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Travel Proposal / 家庭短途旅行调整请示</div>
+    <h1>少折腾，不误会，<br>但还是认真出去玩一趟。</h1>
+    <p class="lead">原计划周日—周三去阿那亚·金山岭。现在新增两个现实条件：周日、周一身体可能不舒服；周一中午还有一个不能被旅途干扰的会议。与其硬执行原计划，不如把“多住一晚”换成“所有人都舒服一点”。</p>
+    <div class="decision">
+      <small>建议批复方案</small>
+      <strong>周一会议结束、吃过午饭后出发 → 阿那亚·金山岭住两晚 → 周二主玩 → 周三从容返京。</strong>
+    </div>
+    <div class="chips">
+      <span class="chip">1位老人</span><span class="chip">1位3岁小朋友</span>
+      <span class="chip">周一中午会议</span><span class="chip">周日/周一身体舒适度优先</span>
+      <span class="chip">计划可随天气降级</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-kicker">01 / 为什么要调整</div>
+    <h2>这次的矛盾，不是“去哪儿”，而是“什么时候动”</h2>
+    <div class="grid">
+      <div class="card"><div class="num">A</div><h3>身体状态不可硬扛</h3><p>周日、周一可能正处在比较不舒服的阶段。提早一天出发，收益只是多住一晚；成本却是收拾、乘车、换环境。</p></div>
+      <div class="card"><div class="num">B</div><h3>会议需要确定性</h3><p>周一中午在北京开会，网络、空间、孩子打扰等都更可控。会议结束再出发，相当于先消掉最大的刚性约束。</p></div>
+      <div class="card"><div class="num">C</div><h3>老人 + 3岁孩子决定节奏</h3><p>这不是适合高强度赶景点的组合。午睡、休息、室内替代活动，比“多打卡两个地方”更重要。</p></div>
+      <div class="card"><div class="num">D</div><h3>天气要能随时 Plan B</h3><p>京北山区夏季存在阵雨和雷暴不确定性。目的地最好即使不上山、不爬长城，也能把一天过得很好。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-kicker">02 / 决策原则</div>
+    <h2>家庭委员会排序</h2>
+    <div class="card">
+      <div class="priority"><div class="rank">1</div><div><b>身体舒适度</b><span>旅行是休息，不应为了执行计划增加身体负担。</span></div></div>
+      <div class="priority"><div class="rank">2</div><div><b>周一会议的确定性</b><span>先把工作完成，再切换到度假模式，不让两件事互相污染。</span></div></div>
+      <div class="priority"><div class="rank">3</div><div><b>老人和孩子的可持续体验</b><span>必须同时拥有轻活动、午睡空间和天气不佳时的替代选择。</span></div></div>
+      <div class="priority"><div class="rank">4</div><div><b>旅行体验</b><span>至少要有一个真正值得的核心体验：山谷度假 + 金山岭长城。</span></div></div>
+      <div class="priority"><div class="rank">5</div><div><b>预算</b><span>两晚相比三晚直接减少一晚住宿，同时保留完整的周二主玩日。</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-kicker">03 / 推荐方案</div>
+    <h2>为什么最终还是金山岭</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="step"><div class="time">周一上午</div><div><b>北京：休息 + 准备</b><p>不搬家、不赶路，老婆按身体状态休息。</p></div></div>
+        <div class="step"><div class="time">周一中午</div><div><b>安心开完会议</b><p>用熟悉的网络和环境处理工作，结束后再正式切换旅行。</p></div></div>
+        <div class="step"><div class="time">13:30–14:30</div><div><b>午饭后出发</b><p>预计下午抵达；到达日只办理入住、吃饭、散步、鹿苑/草坪等轻活动。</p></div></div>
+        <div class="step"><div class="time">周二</div><div><b>唯一完整主玩日</b><p>天气合适：上午金山岭长城轻体验；下午回园区午睡、亲子中心、音乐厅、上院、草坪等。</p></div></div>
+        <div class="step"><div class="time">周三</div><div><b>不赶早，慢慢回京</b><p>早餐后园区轻活动；根据天气和所有人状态决定午前或午后返程。</p></div></div>
+      </div>
+    </div>
+
+    <div class="grid" style="margin-top:10px">
+      <div class="card"><h3>金山岭的优势</h3><p>它不是“必须爬长城才成立”的目的地。阿那亚官方介绍的山谷生活本身包括金山岭上院、山谷音乐厅及完整的小镇配套；长城只是其中一个可选的半日核心项目。</p></div>
+      <div class="card"><h3>对这次家庭组合友好</h3><p>成人可看建筑、散步、喝咖啡；老人可低强度休息；孩子可做亲子活动。天气不佳时，体验不会像纯户外景区那样直接归零。</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-kicker">04 / 实时天气</div>
+    <h2>不把天气写死，出发前现场判断</h2>
+    <div class="card weather">
+      <h3 id="weatherTitle">阿那亚·金山岭天气</h3>
+      <p id="weatherStatus">正在读取实时天气…</p>
+      <div class="weather-row" id="forecast"></div>
+      <button onclick="useMyLocation()">使用我的当前位置</button>
+      <div class="tiny">天气数据：Open-Meteo。定位仅由浏览器临时使用，不上传到本站；拒绝授权时继续显示金山岭天气。</div>
+    </div>
+    <div class="callout" style="margin-top:10px">长城不是 KPI。遇到雷雨、高温、老人或孩子状态不佳，直接取消长城，留在阿那亚园区休息和活动，这个方案仍然成立。</div>
+  </section>
+
+  <section>
+    <div class="section-kicker">05 / 其他方案对比</div>
+    <h2>不是没有备选，只是综合下来没必要折腾</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>方案</th><th>适配</th><th>优势</th><th>主要问题</th><th>结论</th></tr></thead>
+        <tbody>
+          <tr class="best"><td><b>周一会后 → 金山岭 2晚</b></td><td class="score">★★★★★</td><td>会议、身体状态、体验和预算平衡最好</td><td>周一下午需要坐约2小时车</td><td><b>推荐</b></td></tr>
+          <tr><td>周日 → 金山岭 3晚</td><td>★★★★☆</td><td>时间最宽松</td><td>身体不适期就要出发；多一晚成本；周一会议环境更复杂</td><td>没必要硬上</td></tr>
+          <tr><td>周二 → 延庆 Club Med 1晚</td><td>★★★★☆</td><td>室内外亲子项目密集，几乎不用做攻略</td><td>只有一晚；更像酒店度假，长城/山谷体验弱</td><td>最佳 Plan B</td></tr>
+          <tr><td>金海湖</td><td>★★★☆☆</td><td>距离近，湖边轻松</td><td>体验更依赖户外和天气，对两晚完整度一般</td><td>留作天气稳定的周末</td></tr>
+          <tr><td>玉渡山</td><td>★★★☆☆</td><td>自然景观和草地很好</td><td>本质仍是户外型，对老人和3岁孩子的天气容错低</td><td>不如金山岭稳</td></tr>
+          <tr><td>蔚县</td><td>★★☆☆☆</td><td>人文和古镇辨识度高</td><td>车程明显更长，两晚行程折腾感上升</td><td>以后单独安排</td></tr>
+          <tr><td>北京 + 西山温泉</td><td>★★★☆☆</td><td>最省体力，随时回家</td><td>这次身体状态会削弱温泉/水上体验价值，也缺少真正“出门度假”的切换感</td><td>保底方案</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-kicker">06 / 风险与退出机制</div>
+    <h2>这不是军令状，是可撤回方案</h2>
+    <details open>
+      <summary>周一中午还是明显不舒服怎么办？</summary>
+      <p>当天不出发。直接把金山岭取消/顺延，周二根据状态改成延庆 Club Med 一晚，或者北京本地轻松活动。身体状态拥有最终否决权。</p>
+    </details>
+    <details>
+      <summary>周二长城天气不好怎么办？</summary>
+      <p>不爬。阿那亚园区继续：亲子活动、山谷音乐厅、金山岭上院、书店、咖啡、草坪和休息。核心原则是不为了“来都来了”增加风险。</p>
+    </details>
+    <details>
+      <summary>老人或孩子临时累了怎么办？</summary>
+      <p>立即拆分活动：一部分人回房休息，一部分人在园区轻活动。周二不设必须全部完成的项目数量。</p>
+    </details>
+  </section>
+
+  <section class="approve">
+    <h2>请领导审阅</h2>
+    <p>申请人意见：这次不追求“玩够本”，而追求一家人回来以后都觉得这趟出去是休息，不是完成任务。</p>
+    <div class="approval-buttons">
+      <button onclick="approve('批准。按周一会后出发方案执行。')">批准执行</button>
+      <button class="secondary" onclick="approve('原则同意，周一看身体状态再最终决定。')">原则同意</button>
+      <button class="secondary" onclick="approve('退回重议：请申请人继续优化方案。')">退回重议</button>
+    </div>
+    <div id="approvalResult"></div>
+  </section>
+
+  <footer>
+    <div>Proposal only · 详细活动攻略另页制作</div>
+    <div class="source-links">
+      <a href="https://aranya.cc/wen-lu-du-jia/jin-shan-ling.html" target="_blank" rel="noreferrer">阿那亚·金山岭官方</a>
+      <a href="https://www.tixclubs.com/ticket.aspx?nav=1&scid=5" target="_blank" rel="noreferrer">金山岭景区票务</a>
+      <a href="https://www.clubmed.com.tw/l/clubmedjoyviewconcept" target="_blank" rel="noreferrer">Club Med Joyview</a>
+    </div>
+  </footer>
+</main>
+
+<script>
+const DEST = {name:"阿那亚·金山岭", lat:40.690811, lon:117.428039};
+
+function weatherText(code){
+  if(code===0) return "晴";
+  if([1,2].includes(code)) return "晴间多云";
+  if(code===3) return "阴/多云";
+  if([45,48].includes(code)) return "有雾";
+  if([51,53,55,56,57].includes(code)) return "毛毛雨";
+  if([61,63,65,66,67,80,81,82].includes(code)) return "有雨";
+  if([71,73,75,77,85,86].includes(code)) return "有雪";
+  if([95,96,99].includes(code)) return "雷暴";
+  return "天气变化";
+}
+function weekday(s){
+  return ["周日","周一","周二","周三","周四","周五","周六"][new Date(s+"T12:00:00").getDay()];
+}
+async function loadWeather(lat,lon,name){
+  const title=document.getElementById("weatherTitle");
+  const status=document.getElementById("weatherStatus");
+  const forecast=document.getElementById("forecast");
+  title.textContent=name+"天气";
+  status.textContent="正在读取实时天气…";
+  forecast.innerHTML="";
+  try{
+    const qs = new URLSearchParams({
+      latitude:lat, longitude:lon,
+      current:"temperature_2m,apparent_temperature,weather_code,wind_speed_10m",
+      daily:"weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",
+      timezone:"Asia/Shanghai",
+      forecast_days:7
+    });
+    const res=await fetch("https://api.open-meteo.com/v1/forecast?"+qs.toString());
+    if(!res.ok) throw new Error("weather");
+    const d=await res.json();
+    status.textContent=`现在 ${Math.round(d.current.temperature_2m)}°C · 体感 ${Math.round(d.current.apparent_temperature)}°C · ${weatherText(d.current.weather_code)} · 风速 ${Math.round(d.current.wind_speed_10m)} km/h`;
+    const targetDates=["2026-08-17","2026-08-18","2026-08-19"];
+    let indices=targetDates.map(x=>d.daily.time.indexOf(x)).filter(x=>x>=0);
+    if(indices.length===0) indices=[0,1,2].filter(i=>i<d.daily.time.length);
+    forecast.innerHTML=indices.map(i=>`
+      <div class="day">
+        <b>${d.daily.time[i].slice(5).replace("-","/")} ${weekday(d.daily.time[i])}</b>
+        <div>${weatherText(d.daily.weather_code[i])}</div>
+        <div class="temp">${Math.round(d.daily.temperature_2m_max[i])}° / ${Math.round(d.daily.temperature_2m_min[i])}°</div>
+        <div style="font-size:11px;opacity:.78">降水概率 ${d.daily.precipitation_probability_max[i] ?? "--"}%</div>
+      </div>`).join("");
+  }catch(e){
+    status.textContent="天气读取失败，请稍后刷新；不影响页面其他内容。";
+  }
+}
+function useMyLocation(){
+  const status=document.getElementById("weatherStatus");
+  if(!navigator.geolocation){
+    status.textContent="当前浏览器不支持定位，继续显示金山岭天气。";
+    return;
+  }
+  status.textContent="正在请求手机定位权限…";
+  navigator.geolocation.getCurrentPosition(
+    p=>loadWeather(p.coords.latitude,p.coords.longitude,"我的位置"),
+    ()=>{ status.textContent="未取得定位权限，继续显示金山岭天气。"; setTimeout(()=>loadWeather(DEST.lat,DEST.lon,DEST.name),1200); },
+    {enableHighAccuracy:false,timeout:8000,maximumAge:300000}
+  );
+}
+function approve(msg){
+  document.getElementById("approvalResult").textContent="批复意见：" + msg;
+}
+loadWeather(DEST.lat,DEST.lon,DEST.name);
+</script>
+</body>
+</html>
