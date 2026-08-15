@@ -1,0 +1,23 @@
+const DEST={name:'阿那亚·金山岭',lat:40.690811,lon:117.428039};
+const TRIP=['2026-08-17','2026-08-18','2026-08-19'];
+function weatherText(code){if(code===0)return'晴';if([1,2].includes(code))return'晴间多云';if(code===3)return'多云/阴';if([45,48].includes(code))return'有雾';if([51,53,55,56,57].includes(code))return'毛毛雨';if([61,63,65,66,67,80,81,82].includes(code))return'有雨';if([71,73,75,77,85,86].includes(code))return'有雪';if([95,96,99].includes(code))return'雷暴';return'天气变化'}
+function weekday(s){return['周日','周一','周二','周三','周四','周五','周六'][new Date(s+'T12:00:00').getDay()]}
+async function loadWeather(lat=DEST.lat,lon=DEST.lon,name=DEST.name){
+  const title=document.getElementById('weatherTitle'),status=document.getElementById('weatherStatus'),forecast=document.getElementById('forecast');if(!title||!status||!forecast)return;
+  title.textContent=name+'天气';status.textContent='正在读取实时天气…';forecast.innerHTML='';
+  try{
+    const qs=new URLSearchParams({latitude:lat,longitude:lon,current:'temperature_2m,apparent_temperature,weather_code,wind_speed_10m',daily:'weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max',timezone:'Asia/Shanghai',forecast_days:7});
+    const res=await fetch('https://api.open-meteo.com/v1/forecast?'+qs.toString());if(!res.ok)throw new Error('weather');const d=await res.json();
+    status.textContent=`现在 ${Math.round(d.current.temperature_2m)}°C · 体感 ${Math.round(d.current.apparent_temperature)}°C · ${weatherText(d.current.weather_code)} · 风速 ${Math.round(d.current.wind_speed_10m)} km/h`;
+    let indices=TRIP.map(x=>d.daily.time.indexOf(x)).filter(i=>i>=0);if(!indices.length)indices=[0,1,2].filter(i=>i<d.daily.time.length);
+    forecast.innerHTML=indices.map(i=>`<div class="weather-day"><b>${d.daily.time[i].slice(5).replace('-','/')} ${weekday(d.daily.time[i])}</b><div>${weatherText(d.daily.weather_code[i])}</div><div class="temp">${Math.round(d.daily.temperature_2m_max[i])}° / ${Math.round(d.daily.temperature_2m_min[i])}°</div><small>最高降水概率 ${d.daily.precipitation_probability_max[i]??'--'}%</small></div>`).join('');
+  }catch(e){status.textContent='天气读取失败。可稍后刷新；攻略其余内容不受影响。';}
+}
+function useMyLocation(){const s=document.getElementById('weatherStatus');if(!navigator.geolocation){if(s)s.textContent='当前浏览器不支持定位。';return}if(s)s.textContent='正在请求定位权限…';navigator.geolocation.getCurrentPosition(p=>loadWeather(p.coords.latitude,p.coords.longitude,'我的位置'),()=>{if(s)s.textContent='未取得定位权限，继续显示金山岭天气。';setTimeout(()=>loadWeather(),700)},{enableHighAccuracy:false,timeout:8000,maximumAge:300000})}
+function initFilters(){const buttons=document.querySelectorAll('[data-filter]'),cards=document.querySelectorAll('[data-tags]');buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;cards.forEach(c=>{if(f==='all')c.classList.remove('hidden');else c.classList.toggle('hidden',!(c.dataset.tags||'').split(',').includes(f))})}))}
+function initTabs(){document.querySelectorAll('[data-tabset]').forEach(set=>{const name=set.dataset.tabset,buttons=set.querySelectorAll('[data-tab]'),panels=document.querySelectorAll(`[data-panel-group="${name}"] [data-panel]`);buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');panels.forEach(p=>p.classList.toggle('hidden',p.dataset.panel!==btn.dataset.tab))}))})}
+function initChecklist(){document.querySelectorAll('.check-item input[type=checkbox]').forEach((cb,i)=>{const key='jinshanling-check-'+(cb.id||i);cb.checked=localStorage.getItem(key)==='1';cb.closest('.check-item').classList.toggle('done',cb.checked);cb.addEventListener('change',()=>{localStorage.setItem(key,cb.checked?'1':'0');cb.closest('.check-item').classList.toggle('done',cb.checked)})})}
+function approve(text){localStorage.setItem('jinshanling-approval',text);const el=document.getElementById('approvalResult');if(el)el.textContent='批复意见：'+text}
+function initApproval(){const el=document.getElementById('approvalResult'),saved=localStorage.getItem('jinshanling-approval');if(el&&saved)el.textContent='上次批复：'+saved}
+function initTripBadge(){const el=document.getElementById('tripBadge');if(!el)return;const today=new Date();const key=today.toLocaleDateString('en-CA',{timeZone:'Asia/Shanghai'});if(key==='2026-08-17')el.textContent='今天：周一 · 会后出发';else if(key==='2026-08-18')el.textContent='今天：周二 · 主玩日';else if(key==='2026-08-19')el.textContent='今天：周三 · 返京日';else el.textContent='8/17–8/19 · 两晚三天'}
+document.addEventListener('DOMContentLoaded',()=>{loadWeather();initFilters();initTabs();initChecklist();initApproval();initTripBadge()});
